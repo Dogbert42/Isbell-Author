@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I. S. Shrair | Official Author Site</title>
+    <title>Joshua Isbell | Author & Comedian</title>
     <style>
         :root {
-            --space-dark: #0b0d17;
-            --solar-gold: #f9d71c;
-            --text-light: #e0e0e0;
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22; /* A warmer color for a comedian/author vibe */
+            --text-light: #fdfdfd;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--space-dark);
-            color: var(--text-light);
+            font-family: 'Georgia', serif;
+            background-color: #f4f4f4;
+            color: #333;
             margin: 0;
             display: flex;
             flex-direction: column;
@@ -21,122 +21,90 @@
         }
         header {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(to bottom, #1a1c2c, #0b0d17);
+            padding: 50px 20px;
+            background: var(--primary-color);
+            color: var(--text-light);
             width: 100%;
         }
-        h1 { color: var(--solar-gold); margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
+        h1 { margin: 0; font-size: 2.8rem; }
         
-        /* Login Section */
         #login-gate {
-            background: #161b22;
+            background: white;
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-top: -30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: -20px;
             width: 90%;
             max-width: 400px;
             text-align: center;
-            border: 1px solid #30363d;
         }
         input {
             width: 100%;
             padding: 12px;
             margin: 15px 0;
-            border-radius: 6px;
-            border: 1px solid #30363d;
-            background: #0d1117;
-            color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
         button {
-            background: var(--solar-gold);
-            color: black;
+            background: var(--accent-color);
+            color: white;
             border: none;
             padding: 12px 25px;
-            font-weight: bold;
+            font-size: 1rem;
             cursor: pointer;
-            border-radius: 6px;
-            transition: transform 0.2s;
+            border-radius: 4px;
+            width: 100%;
         }
-        button:hover { transform: scale(1.05); }
 
-        /* Bookshelf (Hidden by default) */
         #main-content { display: none; width: 90%; max-width: 1000px; padding: 40px 0; }
-        .author-bio { margin-bottom: 50px; line-height: 1.6; text-align: center; color: #abb2bf; }
-        
         .bookshelf {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
         .book-card {
-            background: #1c2128;
+            background: white;
             padding: 20px;
-            border-radius: 10px;
-            border-bottom: 4px solid var(--solar-gold);
-            transition: 0.3s;
-        }
-        .book-card:hover { transform: translateY(-10px); }
-        .book-card img { width: 100%; border-radius: 4px; margin-bottom: 15px; }
-        .book-tag { color: var(--solar-gold); font-size: 0.8rem; text-transform: uppercase; }
-        .btn-amazon {
-            display: inline-block;
-            margin-top: 15px;
-            color: var(--solar-gold);
-            text-decoration: none;
-            border: 1px solid var(--solar-gold);
-            padding: 8px 15px;
-            border-radius: 4px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>I. S. SHRAIR</h1>
-        <p>Researcher & Author | The Resonant Solar Cycle</p>
+        <h1>JOSHUA ISBELL</h1>
+        <p>Author & Comedian</p>
     </header>
 
     <section id="login-gate">
-        <h2>Reader Access</h2>
-        <p>Enter your access code to view the bibliography and research papers.</p>
-        <input type="password" id="passcode" placeholder="Enter Access Code">
-        <button onclick="checkAccess()">Access Library</button>
-        <p id="error" style="color: #ff7b72; font-size: 0.9rem; margin-top: 10px;"></p>
+        <h2>Member Access</h2>
+        <input type="password" id="passcode" placeholder="Enter Password">
+        <button onclick="checkAccess()">Login</button>
+        <p id="error" style="color: red;"></p>
     </section>
 
     <main id="main-content">
-        <div class="author-bio">
-            <h2>About the Research</h2>
-            <p>I. S. Shrair is the author of pioneering works on the <strong>Resonant Solar Cycle</strong>. His books explore the intricate relationships between solar activity, the planetary system, and terrestrial climate shifts. By bridging the gap between heliophysics and climate science, his work provides a new perspective on the cosmic influences governing our world.</p>
-        </div>
-
-        <div class="bookshelf">
+        <section class="bookshelf">
             <div class="book-card">
-                <div class="book-tag">Flagship Work</div>
-                <h3>The Resonant Solar Cycle</h3>
-                <p>An in-depth analysis of the 11-year solar cycle and its harmonic relationships within the solar system.</p>
-                <a href="https://www.amazon.com/stores/author/B09FGD15SP" class="btn-amazon">Buy on Amazon</a>
+                <h3>Your Book Title</h3>
+                <p>Description of your work.</p>
+                <a href="https://www.amazon.com/stores/author/B09FGD15SP">View on Amazon</a>
             </div>
-
-            <div class="book-card">
-                <div class="book-tag">Climate Science</div>
-                <h3>Solar Activity and Climate</h3>
-                <p>Exploring how solar resonance dictates long-term climate patterns on Earth.</p>
-                <a href="#" class="btn-amazon">View Details</a>
-            </div>
-        </div>
+        </section>
     </main>
 
     <script>
         function checkAccess() {
             const code = document.getElementById('passcode').value;
-            // You can change "solar2024" to whatever password you want
-            if (code === "solar2024") {
+            // Password updated to isbell1
+            if (code === "isbell1") {
                 document.getElementById('login-gate').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
             } else {
-                document.getElementById('error').innerText = "Incorrect code. Please check your book's last page or welcome email.";
+                document.getElementById('error').innerText = "Incorrect password.";
             }
         }
     </script>
