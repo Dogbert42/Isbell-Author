@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joshua Isbell | Author & Comedian</title>
+    <title>Joshua Isbell | Official Author & Comedian Site</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0f0f0f; /* Deep obsidian */
-            --card-bg: #1a1a1a;
-            --text-main: #e5e5e5;
+            --bg-dark: #0a0a0a;
+            --card-bg: #141414;
+            --text-main: #e0e0e0;
             --accent-gold: #c5a059;
-            --border-color: #333;
+            --border-color: #2a2a2a;
         }
 
         body {
@@ -23,40 +23,21 @@
         }
 
         nav {
-            padding: 30px;
+            padding: 25px;
             text-align: center;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             font-size: 0.7rem;
-            font-weight: 600;
             border-bottom: 1px solid var(--border-color);
-            background: rgba(15, 15, 15, 0.95);
+            background: rgba(10, 10, 10, 0.95);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
-        header {
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin: 0;
-            font-weight: 400;
-            letter-spacing: 2px;
-            color: #fff;
-        }
-
-        header p {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.2rem;
-            color: var(--accent-gold);
-            margin-top: 5px;
-        }
+        header { padding: 60px 20px; text-align: center; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; color: #fff; letter-spacing: 2px; }
+        header p { font-family: 'Playfair Display', serif; font-style: italic; color: var(--accent-gold); font-size: 1.1rem; }
 
         /* Access Gate */
         #login-gate {
@@ -65,120 +46,71 @@
             text-align: center;
             padding: 40px;
             background: var(--card-bg);
-            border-radius: 4px;
             border: 1px solid var(--border-color);
         }
+        input { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid var(--border-color); background: #000; color: #fff; text-align: center; }
+        button { width: 100%; padding: 15px; background: var(--accent-gold); color: #000; border: none; cursor: pointer; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
 
-        input {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 15px;
-            border: 1px solid var(--border-color);
-            background: #000;
-            color: #fff;
-            text-align: center;
-            box-sizing: border-box;
-        }
+        /* Main Content */
+        #main-content { display: none; max-width: 1200px; margin: 0 auto; padding: 0 20px 100px 20px; }
 
-        button {
-            width: 100%;
-            padding: 15px;
-            background: var(--accent-gold);
-            color: #000;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
-        }
-
-        /* Library Content */
-        #main-content {
-            display: none;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px 100px 20px;
-            animation: fadeIn 1s ease-in;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .section-label {
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--accent-gold);
-            font-size: 0.8rem;
-            display: block;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--accent-gold);
-            width: fit-content;
-        }
-
-        .featured-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 60px;
-            margin-bottom: 120px;
-        }
-
-        .book-image {
-            flex: 1;
-            filter: grayscale(20%);
-            transition: 0.5s;
-        }
-        .book-image:hover { filter: grayscale(0%); }
-        .book-image img { width: 100%; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
-
-        .content-box { flex: 1.5; }
-
-        .content-box h2 {
+        .section-header {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            margin: 0 0 15px 0;
-            color: #fff;
+            font-size: 2rem;
+            border-bottom: 1px solid var(--accent-gold);
+            padding-bottom: 10px;
+            margin: 60px 0 30px 0;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 15px 35px;
-            border: 1px solid var(--accent-gold);
-            text-decoration: none;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            margin-top: 25px;
-            transition: 0.3s;
+        /* Books Grid */
+        .bookshelf {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
-        .cta-button:hover {
-            background: var(--accent-gold);
-            color: #000;
-        }
-
-        /* Comedy/Tour Section */
-        .comedy-grid {
+        .book-card {
             background: var(--card-bg);
-            padding: 40px;
-            border-left: 4px solid var(--accent-gold);
-        }
-
-        .event-row {
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            transition: 0.3s;
             display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border-color);
+            flex-direction: column;
+        }
+        .book-card:hover { border-color: var(--accent-gold); transform: translateY(-5px); }
+        .book-card img { width: 100%; height: auto; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .book-card h3 { font-family: 'Playfair Display', serif; margin: 0; color: #fff; }
+        .publish-date { color: var(--accent-gold); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        .book-desc { font-size: 0.9rem; color: #aaa; flex-grow: 1; }
+
+        .btn-amazon {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+        .btn-amazon:hover { background: var(--accent-gold); color: #000; }
+
+        /* Comedy Box */
+        .comedy-banner {
+            background: linear-gradient(45deg, #1a1a1a, #0a0a0a);
+            border-left: 4px solid var(--accent-gold);
+            padding: 30px;
+            margin-top: 40px;
         }
 
-        @media (max-width: 800px) {
-            .featured-row { flex-direction: column; }
-            header h1 { font-size: 2.5rem; }
-        }
+        @media (max-width: 600px) { header h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
 
-    <nav>Books &nbsp; • &nbsp; Live Comedy &nbsp; • &nbsp; About &nbsp; • &nbsp; Contact</nav>
+    <nav>The Collection &nbsp; • &nbsp; Live Comedy &nbsp; • &nbsp; Contact</nav>
 
     <header>
         <h1>JOSHUA ISBELL</h1>
@@ -186,52 +118,75 @@
     </header>
 
     <section id="login-gate">
-        <input type="password" id="passcode" placeholder="Enter isbell1 to Access">
-        <button onclick="checkAccess()">Enter Site</button>
+        <input type="password" id="passcode" placeholder="Enter Password">
+        <button onclick="checkAccess()">Enter Library</button>
         <p id="error" style="color: #666; font-size: 0.8rem; margin-top: 15px;"></p>
     </section>
 
     <main id="main-content">
-        <section class="featured-row">
-            <div class="book-image">
-                <img src="collection.jpg" alt="The Something Collection">
-            </div>
-            <div class="content-box">
-                <span class="section-label">Latest Release</span>
-                <h2>The Something Collection</h2>
-                <p style="font-style: italic; color: var(--accent-gold);">Published July 2024</p>
-                <p>A quartet of original works exploring the humor and tragedy of the human condition. From "Something to Love" to "Something Unhappy," Joshua Isbell delivers a masterclass in narrative versatility.</p>
-                <a href="https://www.amazon.com/Joshua-Isbell-Presents-Something-Collection/dp/1737167174" class="cta-button">Purchase on Amazon</a>
-            </div>
-        </section>
+        
+        <h2 class="section-header">Live Comedy</h2>
+        <div class="comedy-banner">
+            <h3>H2O - Medford, OR</h3>
+            <p><strong>Open Mic Night:</strong> Every Thursday @ 8:00 PM</p>
+            <p style="color: #888;">Catch Joshua working out new material every week in the heart of Medford.</p>
+        </div>
 
-        <section class="comedy-grid">
-            <span class="section-label">Live Appearances</span>
-            <h2>On Stage</h2>
-            <div class="event-row">
-                <div>
-                    <strong>Open Mic Night</strong><br>
-                    H2O - Medford, OR
-                </div>
-                <div style="text-align: right; color: var(--accent-gold);">
-                    Every Thursday<br>
-                    8:00 PM
-                </div>
+        <h2 class="section-header">The Bibliography</h2>
+        <div class="bookshelf">
+            
+            <div class="book-card">
+                <img src="collection.jpg" alt="The Something Collection">
+                <span class="publish-date">July 30, 2024</span>
+                <h3>The Something Collection</h3>
+                <p class="book-desc">Four original works: Something to Read, Something to Love, Something Unhappy, and Something Happy.</p>
+                <a href="https://www.amazon.com/Joshua-Isbell-Presents-Something-Collection/dp/1737167174" class="btn-amazon">View on Amazon</a>
             </div>
-            <p style="margin-top: 20px; font-size: 0.9rem; color: #888;">
-                Catch Joshua every week in Medford for a night of evolving material and dark wit.
-            </p>
-        </section>
+
+            <div class="book-card">
+                <img src="happy.jpg" alt="Something Happy">
+                <span class="publish-date">May 20, 2024</span>
+                <h3>Something Happy</h3>
+                <p class="book-desc">Eleven tales of love, life, and bliss. Because the world can always do with a little more kindness.</p>
+                <a href="https://www.amazon.com/dp/B0D3VH9PWR" class="btn-amazon">View on Amazon</a>
+            </div>
+
+            <div class="book-card">
+                <img src="unhappy.jpg" alt="Something Unhappy">
+                <span class="publish-date">April 28, 2024</span>
+                <h3>Something Unhappy</h3>
+                <p class="book-desc">Thirteen tales of misfortune, loss, and pain. No happy conclusions here—just the realities of life's cruelty.</p>
+                <a href="https://www.amazon.com/Joshua-Presents-Something-Unhappy-Collection-ebook/dp/B0D2XKDY1L" class="btn-amazon">View on Amazon</a>
+            </div>
+
+            <div class="book-card">
+                <img src="love.jpg" alt="Something to Love">
+                <span class="publish-date">March 25, 2024</span>
+                <h3>Something to Love</h3>
+                <p class="book-desc">Eleven stories exploring love in all its forms—friends, family, and relationships.</p>
+                <a href="https://www.amazon.com/Joshua-Isbell-Presents-Something-Collection-ebook/dp/B0CWSLX8V4" class="btn-amazon">View on Amazon</a>
+            </div>
+
+            <div class="book-card">
+                <img src="read.jpg" alt="Something to Read">
+                <span class="publish-date">September 30, 2023</span>
+                <h3>Something to Read</h3>
+                <p class="book-desc">Fourteen stories spanning dreams, sacrifice, mystery, and tragedy. Simply: just a little something to read.</p>
+                <a href="https://www.amazon.com/Joshua-Isbell-Presents-Something-Read-ebook/dp/B0CK6VVXNY" class="btn-amazon">View on Amazon</a>
+            </div>
+
+        </div>
     </main>
 
     <script>
         function checkAccess() {
             const code = document.getElementById('passcode').value;
+            // Access remains isbell1
             if (code === "isbell1") {
                 document.getElementById('login-gate').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
             } else {
-                document.getElementById('error').innerText = "Access Denied.";
+                document.getElementById('error').innerText = "Incorrect Password.";
             }
         }
     </script>
