@@ -38,21 +38,44 @@
         }
         nav a:hover { color: var(--accent-gold); }
 
-        /* Header */
-        header { padding: 100px 20px 40px 20px; text-align: center; }
+        /* Header & Bio Section */
+        header { padding: 100px 20px 20px 20px; text-align: center; }
         header h1 { font-family: 'Playfair Display', serif; font-size: 5rem; margin: 0; color: #fff; letter-spacing: 4px; text-transform: uppercase; }
-        header p { font-family: 'Playfair Display', serif; font-style: italic; color: var(--accent-gold); font-size: 1.8rem; margin-top: 10px; }
+        header .subtitle { font-family: 'Playfair Display', serif; font-style: italic; color: var(--accent-gold); font-size: 1.8rem; margin-top: 10px; margin-bottom: 30px; display: block; }
+
+        .header-bio-container {
+            display: flex;
+            max-width: 1000px;
+            margin: 0 auto 60px auto;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .bio-content { flex: 2; }
+        .bio-content p { font-size: 1.1rem; color: #ccc; max-width: 700px; margin: 0 auto 15px auto; }
+
+        .about-sidebar {
+            flex: 1;
+            max-width: 180px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .about-sidebar img {
+            width: 100%;
+            border: 1px solid var(--border-color);
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: 0.4s;
+        }
+        .about-sidebar img:hover { filter: grayscale(0%); opacity: 1; }
 
         /* Main Content */
         main { max-width: 1200px; margin: 0 auto; padding: 0 20px 100px 20px; }
         .section-header { font-family: 'Playfair Display', serif; font-size: 2.2rem; border-bottom: 1px solid var(--accent-gold); padding-bottom: 10px; margin: 40px 0 30px 0; }
 
-        /* About & Photos */
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
-        .about-image img { width: 100%; border: 1px solid var(--border-color); filter: grayscale(30%); transition: 0.5s; }
-        .about-image img:hover { filter: grayscale(0%); }
-
-        /* Hero Feature */
+        /* Featured Release Hero */
         .hero-feature {
             display: flex;
             align-items: center;
@@ -65,7 +88,7 @@
         .hero-image img { width: 100%; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
         .hero-text { flex: 1.5; }
 
-        /* Bookshelf */
+        /* Bookshelf Grid */
         .bookshelf { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .book-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 25px; transition: 0.3s; display: flex; flex-direction: column; }
         .book-card:hover { border-color: var(--accent-gold); transform: translateY(-5px); }
@@ -76,7 +99,7 @@
         .btn-amazon:hover { background: var(--accent-gold); color: #000; }
         .btn-main { padding: 15px 35px; background: var(--accent-gold); color: #000; border: none; cursor: pointer; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; margin-top: 20px; width: 100%; }
 
-        /* Back to Top Button */
+        /* Back to Top */
         #backToTop {
             position: fixed;
             bottom: 30px;
@@ -91,7 +114,6 @@
             align-items: center;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2rem;
             opacity: 0;
             visibility: hidden;
             transition: 0.3s;
@@ -100,12 +122,14 @@
         #backToTop.show { opacity: 1; visibility: visible; }
 
         .info-box { background: var(--card-bg); padding: 40px; border-left: 4px solid var(--accent-gold); }
-        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid var(--border-color); background: #000; color: #fff; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid var(--border-color); background: #000; color: #fff; box-sizing: border-box; }
 
         @media (max-width: 850px) {
             header h1 { font-size: 3rem; }
-            header p { font-size: 1.4rem; }
-            .hero-feature, .about-grid { grid-template-columns: 1fr; flex-direction: column; text-align: center; }
+            .header-bio-container { flex-direction: column; }
+            .about-sidebar { max-width: 100%; flex-direction: row; justify-content: center; }
+            .about-sidebar img { width: 80px; }
+            .hero-feature { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -114,7 +138,6 @@
     <a href="#" id="backToTop" title="Go to top">↑</a>
 
     <nav>
-        <a href="#about">About</a>
         <a href="#collection">Books</a>
         <a href="#comedy">Comedy</a>
         <a href="#contact">Contact</a>
@@ -123,27 +146,26 @@
 
     <header>
         <h1>JOSHUA ISBELL</h1>
-        <p>Author & Comedian</p>
-    </header>
-
-    <main>
-
-        <section id="about">
-            <h2 class="section-header">The Artist</h2>
-            <div class="about-grid">
-                <div class="about-image"><img src="isbell1.jpg" alt="Joshua Isbell on Stage"></div>
-                <div class="about-image"><img src="isbell2.jpg" alt="Joshua Isbell with Drink"></div>
-            </div>
-            <div class="info-box">
+        <span class="subtitle">Author & Comedian</span>
+        
+        <div class="header-bio-container">
+            <div class="bio-content">
                 <p>Joshua Isbell is an author and comedian based in Medford, Oregon.</p>
                 <p>Known for his "Self-Deprecating" style, he weaves together the sharp, observational wit of a stand-up comic with the profound narrative depth of a storyteller. Whether on the page or on the stage.</p>
             </div>
-        </section>
+            <div class="about-sidebar">
+                <img src="isbell1.jpg" alt="Joshua Isbell">
+                <img src="isbell2.jpg" alt="Joshua Isbell">
+            </div>
+        </div>
+    </header>
+
+    <main>
         
         <section id="collection">
             <h2 class="section-header">Featured Release</h2>
             <div class="hero-feature">
-                <div class="hero-image"><img src="collection.jpg" alt="The Something Collection"></div>
+                <div class="hero-image"><img src="collection.jpg" alt="The Something Collection cover"></div>
                 <div class="hero-text">
                     <span style="color: var(--accent-gold); font-size: 0.8rem; font-weight: 600;">PUBLISHED JULY 30, 2024</span>
                     <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 10px 0;">The Something Collection</h2>
@@ -154,42 +176,37 @@
 
             <h2 class="section-header" style="margin-top: 60px;">Full Bibliography</h2>
             <div class="bookshelf">
-                
                 <div class="book-card">
-                    <img src="powerinfluence.jpg" alt="Power & Influence">
-                    <span style="color: var(--accent-gold); font-size: 0.7rem; font-weight: 600; text-transform: uppercase;">Sept 21, 2021</span>
+                    <img src="powerinfluence.jpg" alt="Power and Influence cover">
+                    <span style="color: var(--accent-gold); font-size: 0.7rem; font-weight: 600;">SEPT 21, 2021</span>
                     <h3>Power & Influence</h3>
-                    <p style="font-size: 0.85rem; color: #aaa;">A tyrant captain rules over the remains of a trapped society, sparking death and decay. Amidst metallic armies and broken hopes, two bright lights—Arthur and Maria—battle to build a world of freedom and love.</p>
+                    <p style="font-size: 0.85rem; color: #aaa;">A tyrant captain rules over the remains of a trapped society, sparking death and decay. Arthur and Maria battle to build a world of freedom and love.</p>
                     <a href="https://www.amazon.com/Power-Influence-Joshua-Isbell-ebook/dp/B09GVTDPPG" class="btn-amazon">View on Amazon</a>
                 </div>
-
                 <div class="book-card">
-                    <img src="happy.jpg" alt="Something Happy">
-                    <span style="color: var(--accent-gold); font-size: 0.7rem; font-weight: 600; text-transform: uppercase;">May 20, 2024</span>
+                    <img src="happy.jpg" alt="Something Happy cover">
+                    <span style="color: var(--accent-gold); font-size: 0.7rem; font-weight: 600;">MAY 20, 2024</span>
                     <h3>Something Happy</h3>
-                    <p style="font-size: 0.85rem; color: #aaa;">Eleven tales of love, life, and bliss. Because the world can always do with a little more kindness.</p>
+                    <p style="font-size: 0.85rem; color: #aaa;">Eleven tales of love, life, and bliss. A little more kindness for the world.</p>
                     <a href="https://www.amazon.com/dp/B0D3VH9PWR" class="btn-amazon">View on Amazon</a>
                 </div>
-
                 <div class="book-card">
-                    <img src="unhappy.jpg" alt="Something Unhappy">
-                    <span style="color: var(--accent-gold); font-size: 0.7rem; font-weight: 600; text-transform: uppercase;">April 28, 2024</span>
+                    <img src="unhappy.jpg" alt="Something Unhappy cover">
+                    <span style="color: var(--accent-gold); font-size: 0.7rem; font-weight: 600;">APRIL 28, 2024</span>
                     <h3>Something Unhappy</h3>
-                    <p style="font-size: 0.85rem; color: #aaa;">Thirteen tales of misfortune. No happy conclusions here—just the realities of life’s cruelty.</p>
+                    <p style="font-size: 0.85rem; color: #aaa;">Thirteen tales of misfortune. The realities of life’s cruelty without happy conclusions.</p>
                     <a href="https://www.amazon.com/Joshua-Presents-Something-Unhappy-Collection-ebook/dp/B0D2XKDY1L" class="btn-amazon">View on Amazon</a>
                 </div>
-
                 <div class="book-card">
-                    <img src="love.jpg" alt="Something to Love">
-                    <span style="color: var(--accent-gold); font-size: 0.7rem; font-weight: 600; text-transform: uppercase;">March 25, 2024</span>
+                    <img src="love.jpg" alt="Something to Love cover">
+                    <span style="color: var(--accent-gold); font-size: 0.7rem; font-weight: 600;">MARCH 25, 2024</span>
                     <h3>Something to Love</h3>
                     <p style="font-size: 0.85rem; color: #aaa;">Eleven stories exploring love in all its forms—friends, family, and relationships.</p>
                     <a href="https://www.amazon.com/Joshua-Isbell-Presents-Something-Collection-ebook/dp/B0CWSLX8V4" class="btn-amazon">View on Amazon</a>
                 </div>
-
                 <div class="book-card">
-                    <img src="read.jpg" alt="Something to Read">
-                    <span style="color: var(--accent-gold); font-size: 0.7rem; font-weight: 600; text-transform: uppercase;">Sept 30, 2023</span>
+                    <img src="read.jpg" alt="Something to Read cover">
+                    <span style="color: var(--accent-gold); font-size: 0.7rem; font-weight: 600;">SEPT 30, 2023</span>
                     <h3>Something to Read</h3>
                     <p style="font-size: 0.85rem; color: #aaa;">Fourteen stories spanning dreams, sacrifice, mystery, and tragedy.</p>
                     <a href="https://www.amazon.com/Joshua-Isbell-Presents-Something-Read-ebook/dp/B0CK6VVXNY" class="btn-amazon">View on Amazon</a>
@@ -202,15 +219,13 @@
             <div class="info-box">
                 <h3>H2O - Medford, OR</h3>
                 <p><strong>Open Mic Night:</strong> Every Thursday @ 8:00 PM</p>
-                <p style="color: #888;">Catch Joshua every week working out new material in the heart of Medford.</p>
+                <p style="color: #888;">Catch Joshua every week working out new material in Medford.</p>
             </div>
         </section>
 
         <section id="contact">
             <h2 class="section-header">Contact</h2>
             <div class="info-box">
-                <p>Follow Joshua on <a href="https://www.facebook.com/joshuatisbell/" style="color: var(--accent-gold);">Facebook</a> for updates or send a message below.</p>
-                
                 <form action="https://formspree.io/f/xzdpjbjl" method="POST">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="_replyto" placeholder="Your Email" required>
