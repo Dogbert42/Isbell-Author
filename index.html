@@ -3,76 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joshua Isbell | Author & Comedian</title>
+    <title>Joshua Isbell | Official Author & Comedian Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #e67e22; /* A warmer color for a comedian/author vibe */
-            --text-light: #fdfdfd;
-        }
-        body {
-            font-family: 'Georgia', serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        header {
-            text-align: center;
-            padding: 50px 20px;
-            background: var(--primary-color);
-            color: var(--text-light);
-            width: 100%;
-        }
-        h1 { margin: 0; font-size: 2.8rem; }
-        
-        #login-gate {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-top: -20px;
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-        }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 15px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        button {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 4px;
-            width: 100%;
+            --bg-color: #f9f7f2;
+            --text-main: #2d2d2d;
+            --accent: #b59a6d; /* Muted Gold */
+            --white: #ffffff;
         }
 
-        #main-content { display: none; width: 90%; max-width: 1000px; padding: 40px 0; }
-        .bookshelf {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.6;
         }
-        .book-card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+
+        /* Navigation Style */
+        nav {
+            padding: 30px;
             text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        header {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin: 0;
+            font-weight: 400;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        /* Login Section - Minimalist */
+        #login-gate {
+            max-width: 400px;
+            margin: 0 auto 100px auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #login-gate h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #dcdcdc;
+            background: transparent;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: var(--text-main);
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: opacity 0.3s;
+        }
+
+        button:hover { opacity: 0.8; }
+
+        /* Main Content Section */
+        #main-content {
+            display: none;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px 100px 20px;
+        }
+
+        /* Hero / Latest Release Section */
+        .featured-book {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 100px;
+            flex-wrap: wrap;
+        }
+
+        .book-image {
+            flex: 1;
+            min-width: 300px;
+            background: #eee;
+            height: 450px; /* Placeholder for your book cover */
+            box-shadow: 20px 20px 0px var(--accent);
+        }
+
+        .book-info {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        .book-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
+
+        .btn-buy {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            border: 1px solid var(--text-main);
+            text-decoration: none;
+            color: var(--text-main);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive Mobile Adjustments */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .featured-book { flex-direction: column; text-align: center; }
+            .book-image { box-shadow: 10px 10px 0px var(--accent); }
         }
     </style>
 </head>
 <body>
+
+    <nav>About &nbsp; • &nbsp; Books &nbsp; • &nbsp; Comedy &nbsp; • &nbsp; Contact</nav>
 
     <header>
         <h1>JOSHUA ISBELL</h1>
@@ -80,31 +154,40 @@
     </header>
 
     <section id="login-gate">
-        <h2>Member Access</h2>
-        <input type="password" id="passcode" placeholder="Enter Password">
-        <button onclick="checkAccess()">Login</button>
-        <p id="error" style="color: red;"></p>
+        <h2>Enter the Library</h2>
+        <input type="password" id="passcode" placeholder="Password">
+        <button onclick="checkAccess()">Enter</button>
+        <p id="error" style="color: #999; font-size: 0.8rem; margin-top: 10px;"></p>
     </section>
 
     <main id="main-content">
-        <section class="bookshelf">
-            <div class="book-card">
-                <h3>Your Book Title</h3>
-                <p>Description of your work.</p>
-                <a href="https://www.amazon.com/stores/author/B09FGD15SP">View on Amazon</a>
+        <div class="featured-book">
+            <div class="book-image">
+                <img src="https://via.placeholder.com/350x450" alt="Latest Book" style="width:100%; height:100%; object-fit:cover;">
             </div>
-        </section>
+            <div class="book-info">
+                <span style="text-transform: uppercase; color: var(--accent); font-weight: bold; font-size: 0.8rem;">Latest Release</span>
+                <h2>The Resonant Solar Cycle</h2>
+                <p>A groundbreaking exploration into the rhythmic nature of our sun and its profound influence on the planetary system. Joshua Isbell blends scientific research with a compelling narrative that challenges our understanding of the heliosphere.</p>
+                <a href="https://www.amazon.com/stores/author/B09FGD15SP" class="btn-buy">Order on Amazon</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; border-top: 1px solid #ddd; padding-top: 50px;">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem;">"Part Science, Part Satire."</h3>
+            <p style="max-width: 600px; margin: 0 auto; color: #666;">When he's not deciphering solar cycles, Joshua is performing stand-up across the country, proving that even physics has a funny bone.</p>
+        </div>
     </main>
 
     <script>
         function checkAccess() {
             const code = document.getElementById('passcode').value;
-            // Password updated to isbell1
+            // Your password isbell1
             if (code === "isbell1") {
                 document.getElementById('login-gate').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
             } else {
-                document.getElementById('error').innerText = "Incorrect password.";
+                document.getElementById('error').innerText = "Access Denied.";
             }
         }
     </script>
