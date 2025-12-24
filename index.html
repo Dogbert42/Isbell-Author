@@ -38,7 +38,7 @@
         }
         nav a:hover { color: var(--accent-gold); }
 
-        /* NEW: Portrait Comedy Sidebar Layout */
+        /* Wrapper for Sidebar and Header */
         .top-wrapper {
             display: flex;
             max-width: 1400px;
@@ -48,15 +48,48 @@
             align-items: flex-start;
         }
 
+        /* Tall Portrait Comedy Sidebar */
         .comedy-sidebar {
-            flex: 0 0 200px; /* Fixed portrait width */
+            flex: 0 0 220px; 
+            min-height: 500px; 
             background: var(--card-bg);
             border: 1px solid var(--accent-gold);
-            padding: 20px;
+            padding: 40px 25px;
             text-align: left;
-            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes button to bottom */
+            box-sizing: border-box;
         }
-        .comedy-sidebar h3 { font-family: 'Playfair Display', serif; color: var(--accent-gold); margin-top: 0; border-bottom: 1px solid var(--accent-gold); padding-bottom: 5px; }
+        .comedy-sidebar h3 { 
+            font-family: 'Playfair Display', serif; 
+            color: var(--accent-gold); 
+            margin-top: 0; 
+            border-bottom: 1px solid var(--accent-gold); 
+            padding-bottom: 10px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .comedy-sidebar p { font-size: 0.95rem; margin-bottom: 20px; }
+
+        .btn-fb-sidebar {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        .btn-fb-sidebar:hover {
+            background: var(--accent-gold);
+            color: #000;
+        }
 
         .main-header-area {
             flex: 1;
@@ -148,7 +181,7 @@
 
         @media (max-width: 1000px) {
             .top-wrapper { flex-direction: column; align-items: center; }
-            .comedy-sidebar { flex: none; width: 80%; text-align: center; }
+            .comedy-sidebar { flex: none; width: 80%; min-height: auto; text-align: center; padding: 30px; }
             header h1 { font-size: 3rem; }
             .header-bio-container { flex-direction: column; }
             .about-sidebar { flex-direction: row; justify-content: center; }
@@ -169,10 +202,13 @@
 
     <div class="top-wrapper">
         <aside class="comedy-sidebar">
-            <h3>Live Comedy</h3>
-            <p><strong>H2O</strong><br>Medford, OR</p>
-            <p><strong>Open Mic Night:</strong><br>Every Thursday @ 8:00 PM</p>
-            <p style="color: #888; font-style: italic;">Catch Joshua every week working out new material in Medford.</p>
+            <div>
+                <h3>Live Comedy</h3>
+                <p><strong>H2O</strong><br>Medford, Oregon</p>
+                <p><strong>Open Mic Night:</strong><br>Every Thursday @ 8:00 PM</p>
+                <p style="color: #888; font-style: italic; margin-top: 20px;">Catch Joshua every week working out new material in Medford.</p>
+            </div>
+            <a href="https://www.facebook.com/joshuatisbell/" target="_blank" class="btn-fb-sidebar">Follow on Facebook</a>
         </aside>
 
         <div class="main-header-area">
@@ -187,8 +223,8 @@
                         <p><strong>Whether on the page or on the stage.</strong></p>
                     </div>
                     <div class="about-sidebar">
-                        <img src="isbell1.jpg" alt="Joshua Isbell">
-                        <img src="isbell2.jpg" alt="Joshua Isbell">
+                        <img src="isbell1.jpg" alt="Joshua Isbell stage photo">
+                        <img src="isbell2.jpg" alt="Joshua Isbell comedy photo">
                     </div>
                 </div>
             </header>
